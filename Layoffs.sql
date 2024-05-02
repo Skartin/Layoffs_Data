@@ -40,3 +40,21 @@ GROUP BY
     Industry
 ORDER BY 
     Total_Layoffs ASC
+
+
+-- Top 5 countries with the highest total layoffs
+SELECT 
+    Country,
+    SUM(Laid_Off_Count) AS Total_Layoffs
+FROM 
+    Layoffs_Data..Layoffs
+WHERE 
+    Laid_Off_Count IS NOT NULL
+GROUP BY 
+    Country
+ORDER BY 
+    Total_Layoffs DESC
+LIMIT 5;
+
+
+-- 

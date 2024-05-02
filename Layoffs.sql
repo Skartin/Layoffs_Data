@@ -28,7 +28,6 @@ GROUP BY
 
 
 -- List of total layoffs per Industry
-
 SELECT 
     Industry,
     SUM(Laid_Off_Count) AS Total_Layoffs
@@ -58,8 +57,6 @@ LIMIT 5;
 
 
 -- Retrieve total layoffs per company:
-
-
 SELECT 
     Company,
     SUM(Laid_Off_Count) AS Total_Layoffs
@@ -70,9 +67,9 @@ GROUP BY
     Laid_Off_Count
 	ORDER BY	
 	Total_Layoffs DESC
+	
 
 -- Retrieve layoffs by date range:
-
 SELECT 
     Date,
     SUM(Laid_Off_Count) AS Total_Layoffs
@@ -82,8 +79,8 @@ WHERE
     Date BETWEEN 'start_date' AND 'end_date'; -- Adjust start_date and end_date as needed
 
 
--- Retrieve layoffs by stage of company:
 
+-- Retrieve layoffs by stage of company:
 SELECT 
     Stage,
     SUM(Laid_Off_Count) AS Total_Layoffs
@@ -92,4 +89,18 @@ FROM
 GROUP BY 
     Stage;
 
+
+-- Retrieve monthly layoffs by country
+SELECT 
+    Country,
+    strftime('%Y-%m', Date) AS Month,
+    SUM(Laid_Off_Count) AS Monthly_Layoffs
+FROM 
+    Layoffs_Data..Layoffs
+WHERE 
+    Laid_Off_Count IS NOT NULL
+GROUP BY 
+    Country, Month
+ORDER BY 
+    Country, Month;
 

@@ -57,4 +57,19 @@ ORDER BY
 LIMIT 5;
 
 
--- 
+-- Retrieve total layoffs per company:
+
+
+SELECT 
+    Company,
+    SUM(Laid_Off_Count) AS Total_Layoffs
+FROM 
+    Layoffs_Data..Layoffs
+	WHERE Laid_Off_Count IS NOT NULL
+GROUP BY 
+    Laid_Off_Count
+	ORDER BY	
+	Total_Layoffs DESC
+
+
+

@@ -15,7 +15,17 @@ FROM
 GROUP BY 
    strftime('%Y', date),  Country
 
---
 
 
+-- List of countries total layoffs
+SELECT 
+    Country,
+    SUM(Laid_Off_Count) AS Total_Layoffs
+FROM 
+    Layoffs_Data..Layoffs
+GROUP BY 
+   Country
+
+
+-- List of countries total layoffs
 

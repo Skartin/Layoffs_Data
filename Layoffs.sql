@@ -71,5 +71,25 @@ GROUP BY
 	ORDER BY	
 	Total_Layoffs DESC
 
+-- Retrieve layoffs by date range:
+
+SELECT 
+    Date,
+    SUM(Laid_Off_Count) AS Total_Layoffs
+FROM 
+    Layoffs_Data..Layoffs
+WHERE 
+    Date BETWEEN 'start_date' AND 'end_date'; -- Adjust start_date and end_date as needed
+
+
+-- Retrieve layoffs by stage of company:
+
+SELECT 
+    Stage,
+    SUM(Laid_Off_Count) AS Total_Layoffs
+FROM 
+    Layoffs_Data..Layoffs
+GROUP BY 
+    Stage;
 
 

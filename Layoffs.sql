@@ -17,7 +17,7 @@ GROUP BY
 
 
 
--- List of countries total layoffs
+-- List of total layoffs per country
 SELECT 
     Country,
     SUM(Laid_Off_Count) AS Total_Layoffs
@@ -27,5 +27,16 @@ GROUP BY
    Country
 
 
--- List of countries total layoffs
+-- List of total layoffs per Industry
 
+SELECT 
+    Industry,
+    SUM(Laid_Off_Count) AS Total_Layoffs
+FROM 
+    Layoffs_Data..Layoffs
+WHERE 
+    Laid_Off_Count IS NOT NULL
+GROUP BY 
+    Industry
+ORDER BY 
+    Total_Layoffs ASC

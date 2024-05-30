@@ -14,7 +14,7 @@ FROM
     Layoffs_Data..Layoffs
 GROUP BY 
    strftime('%Y', date),  Country
-
+----------------------------------------------
 
 
 -- List of total layoffs per country
@@ -25,6 +25,7 @@ FROM
     Layoffs_Data..Layoffs
 GROUP BY 
    Country
+----------------------------------------------
 
 
 -- List of total layoffs per Industry
@@ -39,6 +40,7 @@ GROUP BY
     Industry
 ORDER BY 
     Total_Layoffs ASC
+----------------------------------------------
 
 
 -- Top 5 countries with the highest total layoffs
@@ -54,6 +56,7 @@ GROUP BY
 ORDER BY 
     Total_Layoffs DESC
 LIMIT 5;
+----------------------------------------------
 
 
 -- Retrieve total layoffs per company:
@@ -67,6 +70,7 @@ GROUP BY
     Laid_Off_Count
 	ORDER BY	
 	Total_Layoffs DESC
+----------------------------------------------
 	
 
 -- Retrieve layoffs by date range:
@@ -77,6 +81,7 @@ FROM
     Layoffs_Data..Layoffs
 WHERE 
     Date BETWEEN 'start_date' AND 'end_date'; -- Adjust start_date and end_date as needed
+----------------------------------------------
 
 
 
@@ -88,6 +93,7 @@ FROM
     Layoffs_Data..Layoffs
 GROUP BY 
     Stage;
+----------------------------------------------
 
 
 -- Retrieve monthly layoffs by country
